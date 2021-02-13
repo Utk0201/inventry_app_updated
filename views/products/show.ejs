@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show</title>
+</head>
+<body>
+    <h1>In Show file</h1>
+    <ul>
+        <li>
+            <h1>Name: <%=fnd.name%></h1>
+            <h1>Price: <%=fnd.price%></h1>
+            <h1>Category: <a href="/products?category=<%=fnd.category%>"><%=fnd.category%></a></h1>
+            <h1><a href="/farms/<%=fnd.farm._id%>"><%=fnd.farm.name%> farms</a></h1>
+        </li>
+    </ul>
+    <a href="/products">Go back</a>
+    <a href="/products/<%=fnd._id%>/edit">Edit</a>
+    <form action="/products/<%=fnd._id%>?_method=delete"  method="post">
+        <button>Delete</button>
+    </form>
+</body>
+</html>
