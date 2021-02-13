@@ -1,8 +1,8 @@
 # Inventry app
 
 ## Features
-	 One to many mapping is supported in both directions (say from farm to products and vide versa)
-	 CRUD features supported
+> One to many mapping is supported in both directions (say from farm to products and vide versa)
+> CRUD features supported
 
 * Download all the codes and save it in the folder,say invApp.<br>
 * Git bash in invApp Make sure you have nodemon installed in your pc.If not, check out here:<br>
