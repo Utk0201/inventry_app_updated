@@ -1,0 +1,35 @@
+body{
+    margin: 0%;
+}
+
+h1{
+    font-size: 6rem;
+    text-align: center;
+    color:lightslategrey;
+}
+
+a{
+    text-decoration: none;
+    color:red;
+}
+
+li{
+    list-style-type:none;
+    list-style-image: url('https://res.cloudinary.com/dnkbv2p12/image/upload/c_scale,h_46,w_98/v1624024149/random/191-1916400_free-berries-png-free-berries-transparent-images-berries_liexnp.jpg');
+}
+
+.listItems{
+    font-size: 3rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.addFarm{
+    font-size: 3rem;
+    margin-left: 40%;
+    margin-right: 40%;
+    display: inline-block;
+    background-color: greenyellow;
+}

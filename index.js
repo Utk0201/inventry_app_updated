@@ -3,13 +3,17 @@ const app=express();
 const mongoose=require('mongoose');
 const methodOverride=require('method-override');
 const AppError=require('./AppError');
-// const morgan=require('morgan');
+const flash=require('connect-flash');
+const session=require('express-session');
+
+const sessionOptions={secret:'aBadSecret',resave:false,saveUninitialized:false}
+app.use(session(sessionOptions));
 
 //importing files from product.js in models directry
 const Product=require('./models/product');
 const Farm=require('./models/farm');
 
-mongoose.connect('mongodb://localhost:27017/farmApp', {useNewUrlParser: true, useUnifiedTopology: true})
+mongoose.connect('mongodb://localhost:27017/flashDemo', {useNewUrlParser: true, useUnifiedTopology: true})
 .then(()=>{
     console.log('MONGO CONNECTED');
 })
@@ -18,15 +22,21 @@ mongoose.connect('mongodb://localhost:27017/farmApp', {useNewUrlParser: true, us
     console.log(e);
 })
 
-// app.set('views',path.join(_dirname,'views'));
 app.set('views','views');
 app.set('view engine','ejs');
 //requiring method override
 
+app.use(express.static('assets'));      //  middleware to use static files
+app.use(flash());   //now req has a method called '.flash'
+app.use((req,res,next)=>{
+    res.locals.message= req.flash('success');
+    next(); //now i have access to every template
+})
 
 app.use(express.urlencoded({extended:true}))
 //using method override middleware
 app.use(methodOverride('_method'));
+
 
 const categories=['fruits','vegetables','dairy']
 
@@ -41,7 +51,9 @@ app.delete('/farms/:id',async (req,res)=>{
 app.get('/farms',async (req,res)=>{
     // console.log('ok till now');
     const farms=await Farm.find({});
-    res.render('farms/index',{farms});
+    // res.render('farms/index',{farms,message:req.flash('success')});
+    res.render('farms/index',{farms});  //we don't need to write message exclusively
+    //as we have included req.flash(success) in line 32
     // res.send('ok')
 })
 
@@ -63,6 +75,7 @@ app.post('/farms',async (req,res)=>{
     // res.send(req.body);
     const farm=new Farm(req.body);
     await farm.save();
+    req.flash('success','Successfully created a farm');
     res.redirect('/farms');
 })
 
