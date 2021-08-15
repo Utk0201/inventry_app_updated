@@ -14,15 +14,19 @@
         <ul>
             <div class="listItems">
                 <%for(let farm of farms){%>
-                    <li>
-                        <a href="/farms/<%=farm._id%>">
-                            <%=farm.name%>
-                        </a>
-                    </li>
-                <%}%>
+                    <div class="aFarm">
+                        <img style="margin-left: 8px;display: inline;;"
+                            src="https://res.cloudinary.com/dnkbv2p12/image/upload/c_scale,h_46,w_98/v1624024149/random/191-1916400_free-berries-png-free-berries-transparent-images-berries_liexnp.jpg">
+                        <li>
+                            <a href="/farms/<%=farm._id%>">
+                                <%=farm.name%>
+                            </a>
+                        </li>
+                    </div>
+                    <%}%>
             </div>
             <div class="addFarm">
-                <a href="/farms/new">Add a farm</a>
+                <button><a href="/farms/new">Add a farm</a></button>
             </div>
         </ul>
 </body>

@@ -5,6 +5,7 @@ const methodOverride=require('method-override');
 const AppError=require('./AppError');
 const flash=require('connect-flash');
 const session=require('express-session');
+const path = require('path');
 
 const sessionOptions={secret:'aBadSecret',resave:false,saveUninitialized:false}
 app.use(session(sessionOptions));
@@ -22,8 +23,8 @@ mongoose.connect('mongodb://localhost:27017/flashDemo', {useNewUrlParser: true, 
     console.log(e);
 })
 
-app.set('views','views');
 app.set('view engine','ejs');
+app.set('views',path.join(__dirname,'views'));
 //requiring method override
 
 app.use(express.static('assets'));      //  middleware to use static files

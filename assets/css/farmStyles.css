@@ -14,22 +14,53 @@ a{
 }
 
 li{
-    list-style-type:none;
-    list-style-image: url('https://res.cloudinary.com/dnkbv2p12/image/upload/c_scale,h_46,w_98/v1624024149/random/191-1916400_free-berries-png-free-berries-transparent-images-berries_liexnp.jpg');
+    list-style-type: none;
+    display: inline;
+}
+
+.aFarm{
+    border: solid rgba(5, 228, 53,1) 3px;
+    border-width: 0 0 3px 3px;
+    border-bottom-left-radius: 20px;
+    margin-right: 3rem;
 }
 
 .listItems{
     font-size: 3rem;
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-evenly;
 }
 
+
 .addFarm{
+    padding: 10px;
     font-size: 3rem;
     margin-left: 40%;
+    margin-top: 3rem;
     margin-right: 40%;
     display: inline-block;
-    background-color: greenyellow;
+    /* background-color: rgba(5, 228, 53,1); */
+    text-align: center;
+}
+
+.addFarm:hover{
+    box-shadow: 2rem;
+    /* background-color:rgba(5, 228, 53,0.5); */
+}
+
+button {
+    background-color: aquamarine;
+    height: 4rem;
+    width: 8rem;
+    font-size: 1.5rem;
+    border-radius: 20px;
+    border-color: aquamarine;
+    transition: 0.3s ease-in-out;
+}
+button:hover {
+    background-color: aqua;
+    transform: scale(1.2);
 }
